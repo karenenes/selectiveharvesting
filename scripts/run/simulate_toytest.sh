@@ -24,13 +24,14 @@ FEATURESET="all"
 #FEATURESET="only_attrib_features"
 #FEATURESET="only_structural"
 #NTESTS=10 
-NTESTS=10
+NTESTS=1
 
 #for DATASET in citeseer dbpedia wikipedia donors kickstarter; do
 #for DATASET in blogcatalog cora dblp flickr lj; do
-for DATASET in citeseer dbpedia wikipedia donors kickstarter blogcatalog cora dblp flickr lj; do
+#for DATASET in citeseer dbpedia wikipedia donors kickstarter blogcatalog cora dblp flickr lj; do
+for DATASET in donors; do
 #for SETTINGS in ewls glm svr svrc; do
-for SETTINGS in ewls glm; do
+for SETTINGS in ewls; do
 
 echo "**************************************************"
 echo "Simulating method:$SETTINGS on dataset:$DATASET..."

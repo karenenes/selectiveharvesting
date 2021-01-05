@@ -6,7 +6,10 @@ library(adagio)
 library(BBmisc)
 
 source('models/ewls/internal.R')
-source('node2vec/node-locality.R')
+#source('node2vec/node-locality.R')
+source('tane/tane-locality.R')
+#source('tpine/tpine-locality.R')
+
 ##
  #
  ##
@@ -56,13 +59,18 @@ EWLS <- R6Class("EWLS",
           if (length(levels(y.factor)) > 1 && min(table(y.factor))>2) {
               #result = tryCatch( {
               Nturn <<- Nturn + 1 # snapshots -- Karen  
-             
+              
               #node2vec
-              #nodes <- as.vector(as.numeric(colnames(x)))
-              #private$emb_matrix <- NA
+              nodes <- as.vector(as.numeric(colnames(x)))
+              private$emb_matrix <- NA
+              
+              #gerar embeddings
               #private$emb_matrix <- get_node_locality(nodes_to_charge = nodes, problemName = dataName)
-              #idx_app = match(nodes, private$emb_matrix[,1])
-              #x <- rbind(x, t(private$emb_matrix[idx_app, -c(1)]))
+              private$emb_matrix <- get_tane_locality(nodes_to_charge = nodes, problemName = dataName, algorithm_type = 'ComplModel')
+              #private$emb_matrix <- get_tpine_locality(nodes_to_charge = nodes, problemName = dataName)
+              
+              idx_app = match(nodes, private$emb_matrix[,1])
+              x <- rbind(x, t(private$emb_matrix[idx_app, -c(1)]))
               #--#
               
               y0 = sample(which(y == 0))
@@ -160,9 +168,9 @@ EWLS <- R6Class("EWLS",
       predict = function(x)
       {
         #node2vec
-        #border_nodes <- as.vector(as.numeric(colnames(x)))
-        #idx_app_border = match(border_nodes, private$emb_matrix[,1])
-        #x <- rbind(x, t(private$emb_matrix[idx_app_border, -c(1)]))
+        border_nodes <- as.vector(as.numeric(colnames(x)))
+        idx_app_border = match(border_nodes, private$emb_matrix[,1])
+        x <- rbind(x, t(private$emb_matrix[idx_app_border, -c(1)]))
         #--#
         
         yhat <- private$model$predict(x)[,1]

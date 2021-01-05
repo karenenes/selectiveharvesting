@@ -3,6 +3,9 @@ library(R6)
 library(party)
 
 #source('node2vec/node-locality.R')
+source('tane/tane-locality.R')
+#source('tpine/tpine-locality.R')
+
 
 ##
  #
@@ -49,6 +52,7 @@ RForest.p <- R6Class("RForest.p",
           if (length(levels(y.factor)) > 1 && min(table(y.factor))>2) { ### karen
           #if (length(levels(y)) > 1) {  ## original
               y = as.factor(y)
+              
               #node2vec
               #nodes <- as.vector(as.numeric(rownames(x)))
               #private$emb_matrix <- NA

@@ -10,6 +10,7 @@ options(error=recover)
 
 # -- Karen
 Nturn <<- 0  # num da iteracao atual -- snapshots
+Nturn_tane <<- 0 
 # -- 
 
 ##

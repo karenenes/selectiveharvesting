@@ -3,6 +3,9 @@ library(R6)
 library(LiblineaR)
 
 #source('node2vec/node-locality.R')
+source('tane/tane-locality.R')
+#source('tpine/tpine-locality.R')
+
 
 ##
  #
