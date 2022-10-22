@@ -17,17 +17,18 @@ if [ "$#" -eq 1 ]; then
 fi
 
 SCOREMAPPER="max"
-FEATURESET="all"
-#FEATURESET="only_attrib_features"
+#FEATURESET="all"
+FEATURESET="only_attrib_features"
 #FEATURESET="only_structural"
-NTESTS=1
+NTESTS=10
 SETTINGS="config2"
 
 #for MSC in rr dts.5; do
 for MSC in dts.5; do
-#for DATASET in citeseer dbpedia wikipedia donors kickstarter; do
+#for DATASET in donors; do
+for DATASET in dbpedia wikipedia donors; do
 #for DATASET in blogcatalog cora dblp flickr lj; do
-for DATASET in citeseer dbpedia wikipedia donors kickstarter blogcatalog cora dblp flickr lj; do
+#for DATASET in citeseer dbpedia wikipedia donors kickstarter blogcatalog cora dblp flickr lj; do
 
 echo "**************************************************"
 echo "Simulating method_selection:$MSC on dataset:$DATASET..."

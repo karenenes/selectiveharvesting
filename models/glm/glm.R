@@ -175,9 +175,9 @@ GLM <- R6Class("GLM",
         predict = function(x)
         {
           #node2vec
-          #border_nodes <- as.vector(as.numeric(rownames(x)))
-          #idx_app_border = match(border_nodes, private$emb_matrix[,1])
-          #x <- cbind(x, private$emb_matrix[idx_app_border, -c(1)])
+          border_nodes <- as.vector(as.numeric(rownames(x)))
+          idx_app_border = match(border_nodes, private$emb_matrix[,1])
+          x <- cbind(x, private$emb_matrix[idx_app_border, -c(1)])
           #--#
           
           yhat <- predict(private$model$glmnet.fit, x, s = private$model$lambda.min,  type = "response")

@@ -47,7 +47,7 @@ SETTINGS$wikipedia2 <- Settings$new(problem=PROBLEMS$wikipedia2, rng_seed=112358
 SETTINGS$wikipedia3 <- Settings$new(problem=PROBLEMS$wikipedia3, rng_seed=112358, nattempts=400, models=MODELS.P)
 # ===============================================================================================
 # donors
-SETTINGS$donors <- Settings$new(problem=PROBLEMS$donors, rng_seed=112358, nattempts=300, models=MODELS.P)
+SETTINGS$donors <- Settings$new(problem=PROBLEMS$donors, rng_seed=112358, nattempts=150, models=MODELS.P)
 SETTINGS$donors2 <- Settings$new(problem=PROBLEMS$donors2, rng_seed=112358, nattempts=150, models=MODELS.P)
 SETTINGS$donors3 <- Settings$new(problem=PROBLEMS$donors3, rng_seed=112358, nattempts=150, models=MODELS.P)
 # kickstarter

@@ -1,7 +1,7 @@
 # -- karen
 
 library(R6)
-library(glmnet)
+#library(glmnet)
 library(adagio)
 library(BBmisc)
 
@@ -59,7 +59,7 @@ EWLS <- R6Class("EWLS",
           if (length(levels(y.factor)) > 1 && min(table(y.factor))>2) {
               #result = tryCatch( {
               Nturn <<- Nturn + 1 # snapshots -- Karen  
-              
+        
               #node2vec
               nodes <- as.vector(as.numeric(colnames(x)))
               private$emb_matrix <- NA

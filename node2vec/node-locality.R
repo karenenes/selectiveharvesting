@@ -41,6 +41,8 @@ get_node_locality <- function(nodes_to_charge, problemName){
    #roda n2v pra turn atual
    #system(paste("node2vec/node2vec -silent:T -i:node2vec/graph/", problemName,"_", Nturn, ".edgelist -o:node2vec/emb/", problemName, ".emb -d:2 -p:0.5", sep = ""), wait = T)
    #roda n2v pro turn mais recente
+   
+   
    system(paste("node2vec/node2vec -silent:T -i:node2vec/graph/", problemName, ".edgelist -o:node2vec/emb/", problemName, ".emb -d:2 -p:0.5", sep = ""), wait = T)
    
    append_x = read.table(paste("node2vec/emb/", problemName, ".emb", sep = ""), skip = 1, header = F, sep = " ")

@@ -13,9 +13,9 @@ void ParseArgs(int& argc, char* argv[], TStr& InFile, TStr& OutFile,
   Env = TEnv(argc, argv, TNotify::StdNotify);
   Env.PrepArgs(TStr::Fmt("\nAn algorithmic framework for representational learning on graphs."));
   InFile = Env.GetIfArgPrefixStr("-i:", "graph/karate.edgelist",
-                                 "Input graph path");
+   "Input graph path");
   OutFile = Env.GetIfArgPrefixStr("-o:", "emb/karate.emb",
-                                  "Output graph path");
+   "Output graph path");
   Dimensions = Env.GetIfArgPrefixInt("-d:", 128,
    "Number of dimensions. Default is 128");
   WalkLen = Env.GetIfArgPrefixInt("-l:", 80,

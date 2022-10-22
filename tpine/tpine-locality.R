@@ -3,10 +3,16 @@
 library("Matrix")
 
 source("tpine/problems.R")
+source("tpine/target_line.R")
+source("tpine/att_snapshot.R")
 
 get_tpine_locality <- function(nodes_to_charge, problemName){
   
    load_adj_matrix <- load_problem(problemName)
+   
+   load_att_matrix <- load_att(problemName, nodes_to_charge)
+   
+   target_line <- load_TargetLine(problemName)
    
    edge_in <- c()
    

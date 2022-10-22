@@ -7,6 +7,7 @@ source("tane/problems_turn.R")
 
 get_tane_locality <- function(nodes_to_charge, problemName, algorithm_type){
    
+   #browser()
    Nturn_tane <- Nturn_tane + 1
   
    load_adj_matrix <- load_problem(problemName)
